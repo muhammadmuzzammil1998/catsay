@@ -41,7 +41,7 @@ func main() {
 	flag.BoolVar(&version, "version", false, "Check version of catsay")
 	flag.Parse()
 	if version {
-		data = []string{"CatSay", "    by Muhammad Muzzammil", "", "Version 1.0", "", "http://bit.ly/CATSAY"}
+		data = []string{"CatSay", "\tby Muhammad Muzzammil", "", "Version 1.0", "", "http://bit.ly/CATSAY"}
 	} else if info, _ := os.Stdin.Stat(); info.Mode()&os.ModeCharDevice != 0 {
 		data = []string{"oh hai kittehs!", "use pipez... i doan knoe how 2 werk otherwize.", "example: echo \"y halo thar, im kat\" | catsay", "", "or try \"catsay -help\"", "btw, i hatz dis sign. lulz"}
 	} else {
