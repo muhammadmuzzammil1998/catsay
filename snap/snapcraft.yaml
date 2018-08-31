@@ -6,7 +6,7 @@
     catsay is a program that generates pictures of a cat holding a sign with a message. LIEK COWSAY BUT WIF KATS.
     
   grade: stable
-  confinement: devmode # use 'strict' once you have the right plugs and slots
+  confinement: strict
 
   parts:
     part:
