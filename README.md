@@ -61,3 +61,13 @@ $ echo "Hi there\!" | catsay -ascii
   (*/\*) ||
   /    \ >
 ```
+
+## Help
+```
+$ cowsay -help
+Usage of catsay:
+  -ascii
+        Use this if you see blocks here "•ㅅ•っ"
+  -version
+        Check version of catsay
+```
