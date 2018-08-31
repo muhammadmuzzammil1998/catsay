@@ -47,6 +47,7 @@ func main() {
 	} else {
 		data = readLines(bufio.NewReader(os.Stdin))
 	}
+	data = removeTabs(data)
 	var message = createMessage(data, getWidth(data))
 	fmt.Println(message)
 	fmt.Println(getCat(ascii))
@@ -60,6 +61,15 @@ func readLines(reader *bufio.Reader) []string {
 			break
 		}
 		ret = append(ret, string(line))
+	}
+	return ret
+}
+
+func removeTabs(message []string) []string {
+	var ret []string
+	for _, l := range message {
+		l = strings.Replace(l, "\t", "    ", -1)
+		ret = append(ret, l)
 	}
 	return ret
 }
