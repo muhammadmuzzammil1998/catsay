@@ -1,0 +1,14 @@
+
+  name: catsay
+  version: '1.0'
+  summary: LIEK COWSAY BUT WIF KATS
+  description: |
+    catsay is a program that generates pictures of a cat holding a sign with a message. LIEK COWSAY BUT WIF KATS.
+    
+  grade: stable
+  confinement: devmode # use 'strict' once you have the right plugs and slots
+
+  parts:
+    part:
+      plugin: nil
+  
