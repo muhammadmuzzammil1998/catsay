@@ -15,14 +15,14 @@ $ go build
 ### Linux
 Download `.deb` file for catsay from [releases](https://github.com/muhammadmuzzammil1998/catsay/releases) page.
 ```bash
-$ wget https://github.com/muhammadmuzzammil1998/catsay/releases/download/CatSay-{version}/catsay.deb
+$ wget https://github.com/muhammadmuzzammil1998/catsay/releases/download/v{version}/catsay.deb
 $ sudo dpkg -i catsay.deb
 ```
 
 ### Windows
 Start PowerShell as an admin
 ```ps
-$ Invoke-WebRequest https://github.com/muhammadmuzzammil1998/catsay/releases/download/CatSay-{version}/catsay.exe -OutFile catsay.exe
+$ Invoke-WebRequest https://github.com/muhammadmuzzammil1998/catsay/releases/download/v{version}/catsay.exe -OutFile catsay.exe
 $ mv .\catsay.exe C:\Windows\catsay.exe
 ```
 
