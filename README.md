@@ -12,21 +12,25 @@ $ go build
 ```
 
 ## Installation
+Follow the guide on the [releases](https://github.com/muhammadmuzzammil1998/catsay/releases) page for detailed instructions.
 ### Linux
-Download `.deb` file for catsay from [releases](https://github.com/muhammadmuzzammil1998/catsay/releases) page.
+Download `.deb` file for catsay from the [releases](https://github.com/muhammadmuzzammil1998/catsay/releases) page.
 ```bash
-$ wget https://github.com/muhammadmuzzammil1998/catsay/releases/download/v{version}/catsay.deb
-$ sudo dpkg -i catsay.deb
+$ wget https://github.com/muhammadmuzzammil1998/catsay/releases/download/{version}/catsay-linux-{amd64/386}.deb
+$ sudo dpkg -i catsay-linux-{amd64/386}.deb
 ```
-
 ### Windows
 Start PowerShell as an admin
 ```ps
-$ Invoke-WebRequest https://github.com/muhammadmuzzammil1998/catsay/releases/download/v{version}/catsay.exe -OutFile catsay.exe
+$ Invoke-WebRequest https://github.com/muhammadmuzzammil1998/catsay/releases/download/{version}/catsay-windows-{amd64/386}.exe -OutFile catsay.exe
 $ mv .\catsay.exe C:\Windows\catsay.exe
 ```
+### Other OSs
+You can download the [binary already built](https://github.com/muhammadmuzzammil1998/catsay/releases) for your system or [build it yourself](https://github.com/muhammadmuzzammil1998/catsay#build).
 
-### NOTE: This should be obvious but still, adapt version number. Check from [here](https://github.com/muhammadmuzzammil1998/catsay/releases).
+### NOTE: This should be obvious but still:
+ - Adapt {version} number. Check version number from [here](https://github.com/muhammadmuzzammil1998/catsay/releases).
+ - Choose your architecture, `amd64` for 64 bit and `386` for 32 bit systems.
 
 ## Usage
 Pipe the data you want your cat to say.
