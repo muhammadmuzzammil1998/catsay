@@ -5,17 +5,28 @@
 
 ## Build
 Requires [git](https://git-scm.com/download/win) to clone and [Go](https://golang.org/dl/) to build.
-```
+```bash
 $ git clone https://github.com/muhammadmuzzammil1998/catsay.git
 $ cd catsay
 $ go build
 ```
 
 ## Installation
-Move it to your `bin`
+### Linux
+Download `.deb` file for catsay from [releases](https://github.com/muhammadmuzzammil1998/catsay/releases) page.
+```bash
+$ wget https://github.com/muhammadmuzzammil1998/catsay/releases/download/CatSay-{version}/catsay.deb
+$ sudo dpkg -i catsay-{version}.deb
 ```
-$ mv ./catsay /usr/bin
+
+### Windows
+Start PowerShell as an admin
+```ps
+$ Invoke-WebRequest https://github.com/muhammadmuzzammil1998/catsay/releases/download/CatSay-{version}/catsay.exe -OutFile catsay.exe
+$ mv .\catsay.exe C:\Windows\catsay.exe
 ```
+
+### NOTE: This should be obvious but still, adapt version number. Check from [here](https://github.com/muhammadmuzzammil1998/catsay/releases).
 
 ## Usage
 Pipe the data you want your cat to say.
