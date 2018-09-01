@@ -16,7 +16,7 @@ $ go build
 Download `.deb` file for catsay from [releases](https://github.com/muhammadmuzzammil1998/catsay/releases) page.
 ```bash
 $ wget https://github.com/muhammadmuzzammil1998/catsay/releases/download/CatSay-{version}/catsay.deb
-$ sudo dpkg -i catsay-{version}.deb
+$ sudo dpkg -i catsay.deb
 ```
 
 ### Windows
