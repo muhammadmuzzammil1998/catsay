@@ -41,3 +41,14 @@ Try `catsay -ascii` to use ASCII-only characters.
 
 ## Help
 ![image](https://user-images.githubusercontent.com/12321712/44936317-cadacc00-ad91-11e8-85f7-14f1206a6c4d.png)
+
+## Uninstall
+### Linux
+```bash
+$ sudo dpkg --remove catsay
+```
+### Windows
+Start PowerShell as an admin
+```ps
+$ del C:\Windows\catsay.exe
+```
