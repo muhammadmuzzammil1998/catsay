@@ -116,7 +116,7 @@ func formatMessage(message []string, width int) []string {
 
 func getCat(ascii bool) string {
 	if ascii {
-		return "  (\\__/) ||\n  (*/\\*) ||\n  /    \\ >"
+		return "    /\\**/\\ ||\n \\ ( = 3 =)||\n  \\(o     )o"
 	}
-	return "  (\\__/)||\n  (•ㅅ•)||\n  /    \\っ\n"
+	return "    /\\**/\\ ||\n \\ ( = ω =)||\n  \\(o     )っ"
 }
