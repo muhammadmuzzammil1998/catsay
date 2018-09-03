@@ -44,7 +44,7 @@ Try `catsay -ascii` to use ASCII-only characters.
 ![image](https://user-images.githubusercontent.com/12321712/44936316-c9110880-ad91-11e8-8e0f-05c07666e436.png)
 
 ## Help
-![image](https://user-images.githubusercontent.com/12321712/44982118-6470cc00-af92-11e8-9df6-4642ff10700e.png)
+![image](https://user-images.githubusercontent.com/12321712/44982196-b6195680-af92-11e8-8847-af7c997ce4c5.png)
 
 ## Uninstall
 ### Linux
