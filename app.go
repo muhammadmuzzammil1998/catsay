@@ -41,9 +41,9 @@ func main() {
 	flag.BoolVar(&version, "version", false, "Check version of catsay")
 	flag.Parse()
 	if version {
-		data = []string{"CatSay", "\tby Muhammad Muzzammil", "", "Version 2.0", "", "http://bit.ly/CATSAY"}
+		data = buildMessage("CatSay", "\tby Muhammad Muzzammil", "", "Version 2.0", "", "http://bit.ly/CATSAY")
 	} else if info, _ := os.Stdin.Stat(); info.Mode()&os.ModeCharDevice != 0 {
-		data = []string{"oh hai kittehs!", "use pipez... i doan knoe how 2 werk otherwize.", "example: echo \"y halo thar, im kat\" | catsay", "", "or try \"catsay -help\"", "btw, i hatz dis sign. lulz"}
+		data = buildMessage("oh hai kittehs!", "use pipez... i doan knoe how 2 werk otherwize.", "example: echo \"y halo thar, im kat\" | catsay", "", "or try \"catsay -help\"", "btw, i hatz dis sign. lulz")
 	} else {
 		data = readLines(bufio.NewReader(os.Stdin))
 	}
@@ -118,4 +118,8 @@ func getCat(ascii bool) string {
 		return "  (\\__/) ||\n  (*/\\*) ||\n  /    \\ >"
 	}
 	return "  (\\__/)||\n  (•ㅅ•)||\n  /    \\っ\n"
+}
+
+func buildMessage(s ...string) []string {
+	return s
 }
