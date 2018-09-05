@@ -40,6 +40,7 @@ func TestCreateMessage(t *testing.T) {
  ---------------------------------`
 
 	if r != e {
-		t.Fatalf("Expected %s but got %s", e, r)
+		t.Fatalf("Expected\n%s\nbut got\n%s", e, r)
 	}
 }
+
