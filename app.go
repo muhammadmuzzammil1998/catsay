@@ -55,10 +55,10 @@ func main() {
 	}
 
 	setup()
-
-	var message = createMessage(data, getWidth(data)) //Create Message Dialog
-	fmt.Println(message)                              //Print message dialog
-	if ascii {                                        //If ascii is true, show ascii cat
+	data = removeTabs(data)                        //Replace tabs with spaces
+	message := createMessage(data, getWidth(data)) //Create Message Dialog
+	fmt.Println(message)                           //Print message dialog
+	if ascii {                                     //If ascii is true, show ascii cat
 		fmt.Println(cat.BodyASCII)
 	} else {
 		fmt.Println(cat.Body)
@@ -97,7 +97,7 @@ func getWidth(message []string) int {
 
 //Creates and returns a new message dialog
 func createMessage(lines []string, width int) string {
-	lines = formatMessage(removeTabs(lines), width)
+	lines = formatMessage(lines, width)
 	count := len(lines)
 	var message []string
 
