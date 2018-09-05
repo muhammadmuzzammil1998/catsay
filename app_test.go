@@ -54,7 +54,8 @@ func TestRemoveTabs(t *testing.T) {
 }
 func TestCreateMessage(t *testing.T) {
 	setup()
-	r := createMessage(message, getWidth(message))
+	data := removeTabs(message)
+	r := createMessage(data, getWidth(data))
 	var e = ` _________________________________
 / Hello                           \
 |     newline                     |
@@ -67,4 +68,3 @@ func TestCreateMessage(t *testing.T) {
 		t.Fatalf("Expected\n%s\nbut got\n%s", e, r)
 	}
 }
-
