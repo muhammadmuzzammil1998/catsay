@@ -9,8 +9,8 @@ type Cat struct {
 
 func getCat() *Cat {
 	return &Cat{
-		Body:      "  (\\__/)||\n  (•ㅅ•)||\n  /    \\っ\n",
-		BodyASCII: "  (\\__/) ||\n  (*/\\*) ||\n  /    \\ >",
+		Body:      "  (\\__/)||\n_ (•ㅅ•)||\n \\/    \\っ\n",
+		BodyASCII: "  (\\__/) ||\n_ (*/\\*) ||\n \\/    \\ >",
 		MinLen:    9,
 	}
 }
