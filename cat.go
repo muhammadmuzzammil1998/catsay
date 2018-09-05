@@ -34,8 +34,8 @@ type Cat struct {
 //Returns a cat
 func getCat() *Cat {
 	return &Cat{
-		Body:      "  (\\__/)||\n_ (•ㅅ•)||\n \\/    \\っ\n",
-		BodyASCII: "  (\\__/) ||\n_ (*/\\*) ||\n \\/    \\ >",
+		Body:      "  (\\__/)||\n_ (•ㅅ•)||\n \\/o   \\っ\n",
+		BodyASCII: "  (\\__/) ||\n_ (*/\\*) ||\n \\/o   \\ >",
 		MinLen:    9,
 	}
 }
