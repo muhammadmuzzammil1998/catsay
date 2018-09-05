@@ -1,11 +1,20 @@
 package main
 
 import (
+	"bufio"
+	"strings"
 	"testing"
 )
 
 var message = buildMessage("Hello", "\tnewline", "one more newline with more data", "   one more with less data", "this\tone\thas\ttabs!")
 
+func TestReadLines(t *testing.T) {
+	r := bufio.NewReader(strings.NewReader("Hello"))
+	s := readLines(r)
+	if s[0] != "Hello" {
+		t.Fatalf("Couldn't parse bufio.Reader")
+	}
+}
 func TestGetWidth(t *testing.T) {
 	setup()
 	r := getWidth(message)
