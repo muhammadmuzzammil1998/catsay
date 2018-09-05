@@ -2,7 +2,7 @@
 [![CircleCI](https://circleci.com/gh/muhammadmuzzammil1998/catsay.svg?style=svg)](https://circleci.com/gh/muhammadmuzzammil1998/catsay) [![CodeFactor](https://www.codefactor.io/repository/github/muhammadmuzzammil1998/catsay/badge)](https://www.codefactor.io/repository/github/muhammadmuzzammil1998/catsay) [![Go Report Card](https://goreportcard.com/badge/github.com/muhammadmuzzammil1998/catsay)](https://goreportcard.com/report/github.com/muhammadmuzzammil1998/catsay) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/800d49d519784954ad0051d8c23a34c4)](https://www.codacy.com/app/muhammadmuzzammil1998/catsay?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=muhammadmuzzammil1998/catsay&amp;utm_campaign=Badge_Grade) [![Maintainability](https://api.codeclimate.com/v1/badges/1ce5d0c70611a65a5036/maintainability)](https://codeclimate.com/github/muhammadmuzzammil1998/catsay/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/1ce5d0c70611a65a5036/test_coverage)](https://codeclimate.com/github/muhammadmuzzammil1998/catsay/test_coverage) [![GitHub license](https://img.shields.io/github/license/muhammadmuzzammil1998/catsay.svg)](https://github.com/muhammadmuzzammil1998/catsay/blob/master/LICENSE) [![Twitter](https://img.shields.io/twitter/url/https/github.com/muhammadmuzzammil1998/catsay.svg?style=social)](https://twitter.com/intent/tweet?hashtags=catsay&text=Take%20a%20look%20at%20this!%20CatSay%20by%20@mmuzzammil1998&url=https://github.com/muhammadmuzzammil1998/catsay/)
 
 **catsay** is a program that generates pictures of a cat holding a sign with a message. 
-![image](https://user-images.githubusercontent.com/12321712/44936312-c7474500-ad91-11e8-87a5-e341f5f55170.png)
+![image](.github/images/front.png)
 
 ## Build
 Requires [git](https://git-scm.com/download/win) to clone and [Go](https://golang.org/dl/) to build.
@@ -30,22 +30,22 @@ $ mv .\catsay.exe C:\Windows\catsay.exe
 You can download the [binary already built](https://github.com/muhammadmuzzammil1998/catsay/releases) for your system or [build it yourself](https://github.com/muhammadmuzzammil1998/catsay#build).
 
 ### NOTE: This should be obvious but still:
- - Adapt {version} number. Check version number from [here](https://github.com/muhammadmuzzammil1998/catsay/releases).
+ - Adapt `{version}` number. Check version number from [here](https://github.com/muhammadmuzzammil1998/catsay/releases).
  - Choose your architecture, `amd64` for 64 bit and `386` for 32 bit systems.
 
 ## Usage
 Pipe the data you want your cat to say.
 ### Examples
-![image](https://user-images.githubusercontent.com/12321712/44936315-c7dfdb80-ad91-11e8-9277-1377706b6da5.png)
+![image](.github/images/example.png)
 
 ## Seeing blocks instead of eyes, nose, or hand?
 This is probably because your terminal doesn't support those characters. lulz.
 
 Try `catsay -ascii` to use ASCII-only characters. 
-![image](https://user-images.githubusercontent.com/12321712/44936316-c9110880-ad91-11e8-8e0f-05c07666e436.png)
+![image](.github/images/ascii.png)
 
 ## Help
-![image](https://user-images.githubusercontent.com/12321712/44982196-b6195680-af92-11e8-8847-af7c997ce4c5.png)
+![image](.github/images/help.png)
 
 ## Uninstall
 ### Linux
