@@ -7,6 +7,7 @@ type Cat struct {
 	MinLen    int    `json:"minimumlength"`
 }
 
+//Returns a cat
 func getCat() *Cat {
 	return &Cat{
 		Body:      "  (\\__/)||\n_ (•ㅅ•)||\n \\/    \\っ\n",
