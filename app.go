@@ -34,6 +34,8 @@ import (
 	"unicode/utf8"
 )
 
+var cat *Cat
+
 func main() {
 	var ascii, version bool
 	var data []string
@@ -47,9 +49,18 @@ func main() {
 	} else {
 		data = readLines(bufio.NewReader(os.Stdin))
 	}
+	setup()
 	var message = createMessage(data, getWidth(data))
 	fmt.Println(message)
-	fmt.Println(getCat(ascii))
+	if ascii {
+		fmt.Println(cat.BodyASCII)
+	} else {
+		fmt.Println(cat.Body)
+	}
+}
+
+func setup() {
+	cat = getCat()
 }
 
 func readLines(reader *bufio.Reader) []string {
@@ -65,7 +76,7 @@ func readLines(reader *bufio.Reader) []string {
 }
 
 func getWidth(message []string) int {
-	ret := 9
+	ret := cat.MinLen
 	for _, l := range message {
 		len := utf8.RuneCountInString(l)
 		if len > ret {
@@ -111,13 +122,6 @@ func formatMessage(message []string, width int) []string {
 		ret = append(ret, l+strings.Repeat(" ", width-utf8.RuneCountInString(l)))
 	}
 	return ret
-}
-
-func getCat(ascii bool) string {
-	if ascii {
-		return "  (\\__/) ||\n  (*/\\*) ||\n  /    \\ >"
-	}
-	return "  (\\__/)||\n  (•ㅅ•)||\n  /    \\っ\n"
 }
 
 func buildMessage(s ...string) []string {

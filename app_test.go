@@ -7,6 +7,7 @@ import (
 var message = buildMessage("Hello", "\tnewline", "one more newline with more data", "   one more with less data", "this\tone\thas\ttabs!")
 
 func TestGetWidth(t *testing.T) {
+	setup()
 	r := getWidth(message)
 	if r < 9 {
 		t.Fatalf("Expected to be greater or equal to 9 but got %d", r)
@@ -19,6 +20,7 @@ func TestRemoveTabs(t *testing.T) {
 	}
 }
 func TestCreateMessage(t *testing.T) {
+	setup()
 	r := createMessage(message, getWidth(message))
 	var e = ` _________________________________
 / Hello                           \
