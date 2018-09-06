@@ -34,25 +34,43 @@ import (
 	"unicode/utf8"
 )
 
+//Defining a main cat
+var cat *Cat
+
 func main() {
+	//Declaring flags and parsing them
 	var ascii, version bool
 	var data []string
 	flag.BoolVar(&ascii, "ascii", false, "Use this if you see blocks here \"•ㅅ•っ\"")
 	flag.BoolVar(&version, "version", false, "Check version of catsay")
 	flag.Parse()
+
+	//Checking flags
 	if version {
-		data = []string{"CatSay", "\tby Muhammad Muzzammil", "", "Version 1.0", "", "http://bit.ly/CATSAY"}
+		data = buildMessage("CatSay", "\tby Muhammad Muzzammil", "", "Version 2.0", "", "http://bit.ly/CATSAY")
 	} else if info, _ := os.Stdin.Stat(); info.Mode()&os.ModeCharDevice != 0 {
-		data = []string{"oh hai kittehs!", "use pipez... i doan knoe how 2 werk otherwize.", "example: echo \"y halo thar, im kat\" | catsay", "", "or try \"catsay -help\"", "btw, i hatz dis sign. lulz"}
+		data = buildMessage("oh hai kittehs!", "use pipez... i doan knoe how 2 werk otherwize.", "example: echo \"y halo thar, im kat\" | catsay", "", "or try \"catsay -help\"", "btw, i hatz dis sign. lulz")
 	} else {
 		data = readLines(bufio.NewReader(os.Stdin))
 	}
-	data = removeTabs(data)
-	var message = createMessage(data, getWidth(data))
-	fmt.Println(message)
-	fmt.Println(getCat(ascii))
+
+	setup()
+	data = removeTabs(data)                        //Replace tabs with spaces
+	message := createMessage(data, getWidth(data)) //Create Message Dialog
+	fmt.Println(message)                           //Print message dialog
+	if ascii {                                     //If ascii is true, show ascii cat
+		fmt.Println(cat.BodyASCII)
+	} else {
+		fmt.Println(cat.Body)
+	}
 }
 
+//Setup a new cat
+func setup() {
+	cat = getCat()
+}
+
+//Reads and returns data from piped information
 func readLines(reader *bufio.Reader) []string {
 	var ret []string
 	for {
@@ -65,17 +83,9 @@ func readLines(reader *bufio.Reader) []string {
 	return ret
 }
 
-func removeTabs(message []string) []string {
-	var ret []string
-	for _, l := range message {
-		l = strings.Replace(l, "\t", "    ", -1)
-		ret = append(ret, l)
-	}
-	return ret
-}
-
+//Gets maximum width of block
 func getWidth(message []string) int {
-	ret := 9
+	ret := cat.MinLen
 	for _, l := range message {
 		len := utf8.RuneCountInString(l)
 		if len > ret {
@@ -85,12 +95,13 @@ func getWidth(message []string) int {
 	return ret
 }
 
+//Creates and returns a new message dialog
 func createMessage(lines []string, width int) string {
 	lines = formatMessage(lines, width)
 	count := len(lines)
 	var message []string
 
-	message = append(message, " "+strings.Repeat("_", width+2))
+	message = append(message, " "+strings.Repeat("_", width+2)) //Top
 	if count > 1 {
 		message = append(message, fmt.Sprintf(`%s %s %s`, "/", lines[0], "\\"))
 		i := 1
@@ -102,10 +113,21 @@ func createMessage(lines []string, width int) string {
 		message = append(message, fmt.Sprintf("%s %s %s", "<", lines[0], ">"))
 	}
 
-	message = append(message, " "+strings.Repeat("-", width+2))
+	message = append(message, " "+strings.Repeat("-", width+2)) //Bottom
 	return strings.Join(message, "\n")
 }
 
+//Replaces tabs with 4 spaces
+func removeTabs(message []string) []string {
+	var ret []string
+	for _, l := range message {
+		l = strings.Replace(l, "\t", "    ", -1)
+		ret = append(ret, l)
+	}
+	return ret
+}
+
+//Formats message by adding whitespaces
 func formatMessage(message []string, width int) []string {
 	var ret []string
 	for _, l := range message {
@@ -114,9 +136,7 @@ func formatMessage(message []string, width int) []string {
 	return ret
 }
 
-func getCat(ascii bool) string {
-	if ascii {
-		return "  (\\__/) ||\n  (*/\\*) ||\n  /    \\ >"
-	}
-	return "  (\\__/)||\n  (•ㅅ•)||\n  /    \\っ\n"
+//Builds a message
+func buildMessage(s ...string) []string {
+	return s
 }
