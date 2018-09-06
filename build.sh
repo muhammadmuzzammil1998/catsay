@@ -32,7 +32,9 @@ url="https://github.com/muhammadmuzzammil1998/catsay/"
 desc="catsay is a program that generates pictures of a cat holding a sign with a message."
 license="MIT"
 
-if go test -v; then
+go test -v
+
+if [ $? -ne 0 ]; then
     echo 'Tests were not successful'
     exit 1
 fi
@@ -50,7 +52,9 @@ do
         package_name+='.exe'
     fi
 
-    if env GOOS=$GOOS GOARCH=$GOARCH go build -o $package_name; then
+    env GOOS=$GOOS GOARCH=$GOARCH go build -o $package_name
+
+    if [ $? -ne 0 ]; then
         echo 'Unable to build for '$GOOS'-'$GOARCH
     else
         if [ $GOOS = "linux" ]; then
@@ -61,8 +65,9 @@ do
                 
                 dpkg-deb --build catsay
                 mv catsay.deb ../bin/$output_name'.deb'
-                cd ../bin || exit
+                cd ../bin
                 file $output_name'.deb' >> BIN_INFO
+                cd ..
                 rm -rf deb;
             fi
         fi
@@ -87,3 +92,4 @@ echo -e "\n\nPacking binaries..."
 tar -zcvf catsay-binaries.tar.gz bin > /dev/null
 
 rm -rf bin
+
