@@ -68,3 +68,16 @@ func TestCreateMessage(t *testing.T) {
 		t.Fatalf("Expected\n%s\nbut got\n%s", e, r)
 	}
 }
+func TestFormatMessage(t *testing.T) {
+	setup()
+	data := removeTabs(message)
+	e := formatMessage(data, getWidth(data))
+	eLen := len(e[0])
+	var rLen int
+	for _, r := range e {
+		rLen = len(r)
+	}
+	if eLen != rLen {
+		t.Fatalf("Length of each line should be equal. Expected %d but got %d", eLen, rLen)
+	}
+}
