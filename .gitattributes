@@ -1,2 +1,2 @@
 * text=auto
-build.sh linguist-detectable=false
+/.dist/* linguist-detectable=false
