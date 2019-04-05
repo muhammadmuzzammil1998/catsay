@@ -48,7 +48,7 @@ func main() {
 
 	//Checking flags
 	if version {
-		data = buildMessage("CatSay", "\tby Muhammad Muzzammil", "", "Version 2.0", "", "http://bit.ly/CATSAY")
+		data = buildMessage("CatSay", "\tby Muhammad Muzzammil", "", "Version 2.1", "", "http://bit.ly/CATSAY")
 	} else if info, _ := os.Stdin.Stat(); info.Mode()&os.ModeCharDevice != 0 {
 		data = buildMessage("oh hai kittehs!", "use pipez... i doan knoe how 2 werk otherwize.", "example: echo \"y halo thar, im kat\" | catsay", "", "or try \"catsay -help\"", "btw, i hatz dis sign. lulz")
 	} else {
