@@ -58,3 +58,6 @@ Start PowerShell as an admin
 ```ps
 $ del C:\Windows\catsay.exe
 ```
+## Contributors
+
+- @mattn - Fixed width for multi-byte strings (#14)
