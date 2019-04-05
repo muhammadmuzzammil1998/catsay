@@ -9,6 +9,7 @@ Requires [git](https://git-scm.com/download/win) to clone and [Go](https://golan
 ```bash
 $ git clone https://github.com/muhammadmuzzammil1998/catsay.git
 $ cd catsay
+$ go get -d
 $ go build
 ```
 
@@ -57,3 +58,6 @@ Start PowerShell as an admin
 ```ps
 $ del C:\Windows\catsay.exe
 ```
+## Contributors
+
+- **[@mattn](https://github.com/mattn)** - Fixed width for multi-byte strings *([#14](https://github.com/muhammadmuzzammil1998/catsay/pull/14))*

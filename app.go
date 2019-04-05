@@ -31,7 +31,8 @@ import (
 	"io"
 	"os"
 	"strings"
-	"unicode/utf8"
+
+	"github.com/mattn/go-runewidth"
 )
 
 //Defining a main cat
@@ -47,7 +48,7 @@ func main() {
 
 	//Checking flags
 	if version {
-		data = buildMessage("CatSay", "\tby Muhammad Muzzammil", "", "Version 2.0", "", "http://bit.ly/CATSAY")
+		data = buildMessage("CatSay", "\tby Muhammad Muzzammil", "", "Version 2.1", "", "http://bit.ly/CATSAY")
 	} else if info, _ := os.Stdin.Stat(); info.Mode()&os.ModeCharDevice != 0 {
 		data = buildMessage("oh hai kittehs!", "use pipez... i doan knoe how 2 werk otherwize.", "example: echo \"y halo thar, im kat\" | catsay", "", "or try \"catsay -help\"", "btw, i hatz dis sign. lulz")
 	} else {
@@ -87,9 +88,9 @@ func readLines(reader *bufio.Reader) []string {
 func getWidth(message []string) int {
 	ret := cat.MinLen
 	for _, l := range message {
-		len := utf8.RuneCountInString(l)
-		if len > ret {
-			ret = len
+		width := runewidth.StringWidth(l)
+		if width > ret {
+			ret = width
 		}
 	}
 	return ret
@@ -131,7 +132,8 @@ func removeTabs(message []string) []string {
 func formatMessage(message []string, width int) []string {
 	var ret []string
 	for _, l := range message {
-		ret = append(ret, l+strings.Repeat(" ", width-utf8.RuneCountInString(l)))
+		w := runewidth.StringWidth(l)
+		ret = append(ret, l+strings.Repeat(" ", width-w))
 	}
 	return ret
 }

@@ -27,7 +27,7 @@ cd ..
 rm -rf bin deb
 mkdir bin
 
-version=2.0
+version=2.1
 maintainer="Muhammad Muzzammil <email@muzzammil.xyz>"
 url="https://github.com/muhammadmuzzammil1998/catsay/"
 desc="catsay is a program that generates pictures of a cat holding a sign with a message."
@@ -91,5 +91,6 @@ done
 
 echo -e "\n\nPacking binaries..."
 tar -zcvf .dist/catsay-binaries.tar.gz bin > /dev/null
-
+file .dist/catsay-binaries.tar.gz >> bin/BIN_INFO
+mv bin/BIN_INFO .dist/BIN_INFO
 rm -rf bin
