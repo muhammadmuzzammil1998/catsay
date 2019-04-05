@@ -31,7 +31,8 @@ import (
 	"io"
 	"os"
 	"strings"
-	"unicode/utf8"
+
+	"github.com/mattn/go-runewidth"
 )
 
 //Defining a main cat
@@ -87,9 +88,9 @@ func readLines(reader *bufio.Reader) []string {
 func getWidth(message []string) int {
 	ret := cat.MinLen
 	for _, l := range message {
-		len := utf8.RuneCountInString(l)
-		if len > ret {
-			ret = len
+		width := runewidth.StringWidth(l)
+		if width > ret {
+			ret = width
 		}
 	}
 	return ret
@@ -131,7 +132,8 @@ func removeTabs(message []string) []string {
 func formatMessage(message []string, width int) []string {
 	var ret []string
 	for _, l := range message {
-		ret = append(ret, l+strings.Repeat(" ", width-utf8.RuneCountInString(l)))
+		w := runewidth.StringWidth(l)
+		ret = append(ret, l+strings.Repeat(" ", width-w))
 	}
 	return ret
 }

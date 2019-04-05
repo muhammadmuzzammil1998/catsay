@@ -39,6 +39,7 @@ func TestReadLines(t *testing.T) {
 		t.Fatalf("Couldn't parse bufio.Reader")
 	}
 }
+
 func TestGetWidth(t *testing.T) {
 	setup()
 	r := getWidth(message)
@@ -46,12 +47,14 @@ func TestGetWidth(t *testing.T) {
 		t.Fatalf("Expected to be greater or equal to 9 but got %d", r)
 	}
 }
+
 func TestRemoveTabs(t *testing.T) {
 	r := removeTabs(message)
 	if r[4] != "this    one    has    tabs!" {
 		t.Fatalf("Tabs were not replaced with spaces")
 	}
 }
+
 func TestCreateMessage(t *testing.T) {
 	setup()
 	data := removeTabs(message)
@@ -68,6 +71,7 @@ func TestCreateMessage(t *testing.T) {
 		t.Fatalf("Expected\n%s\nbut got\n%s", e, r)
 	}
 }
+
 func TestFormatMessage(t *testing.T) {
 	setup()
 	data := removeTabs(message)
@@ -79,5 +83,17 @@ func TestFormatMessage(t *testing.T) {
 	}
 	if eLen != rLen {
 		t.Fatalf("Length of each line should be equal. Expected %d but got %d", eLen, rLen)
+	}
+}
+
+func TestMultiByteString(t *testing.T) {
+	setup()
+	data := removeTabs(buildMessage("こんにちわ世界"))
+	got := createMessage(data, getWidth(data))
+	var want = ` ________________
+< こんにちわ世界 >
+ ----------------`
+	if got != want {
+		t.Fatalf("Expected\n%s\nbut got\n%s", want, got)
 	}
 }
