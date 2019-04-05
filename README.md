@@ -60,4 +60,4 @@ $ del C:\Windows\catsay.exe
 ```
 ## Contributors
 
-- @mattn - Fixed width for multi-byte strings (#14)
+- **[@mattn](https://github.com/mattn)** - Fixed width for multi-byte strings *([#14](https://github.com/muhammadmuzzammil1998/catsay/pull/14))*
