@@ -91,5 +91,6 @@ done
 
 echo -e "\n\nPacking binaries..."
 tar -zcvf .dist/catsay-binaries.tar.gz bin > /dev/null
-
+file .dist/catsay-binaries.tar.gz >> bin/BIN_INFO
+mv bin/BIN_INFO .dist/BIN_INFO
 rm -rf bin
